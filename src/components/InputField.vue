@@ -3,13 +3,13 @@
     <div class="fixed-width">
       <div class="label">{{ label }}</div>
       <div class="input-content">
-        <button class="calculator-button">
+        <button class="calculator-button" v-on:click="$emit('decrease-value')">
           <span>-</span>
         </button>
 
         <input type="text" :value="value" readonly />
 
-        <button class="calculator-button">
+        <button class="calculator-button" v-on:click="$emit('increase-value')">
           <span>+</span>
         </button>
       </div>

@@ -8,11 +8,24 @@
           v-bind:value="calculation.monthlyCost"/>
         <InputField
           v-bind:label="loanAmountLabel"
-          v-bind:value="calculation.amount"/>
+          v-bind:value="calculation.amount"
+          v-bind:suffix="loanAmountSuffix"
+          v-bind:step="10000"
+          v-bind:minimum="15000"
+          v-bind:maximum="1000000"
+          v-on:decrease-value="decreaseValue"
+          v-on:increase-value="increaseValue"/>
         <InputField
           v-bind:label="repaymentYearsLabel"
-          v-bind:value="calculation.years"/>
-        <SubmitButton v-bind:label="ctaLabel"/>
+          v-bind:value="calculation.years"
+          v-bind:step="1"
+          v-bind:minimum="1"
+          v-bind:maximum="25"
+          v-on:decrease-value="decreaseValue"
+          v-on:increase-value="increaseValue"/>
+        <SubmitButton
+          v-bind:label="ctaLabel"
+          v-on:submit="submit"/>
       </div>
     </div>
   </div>
@@ -56,6 +69,24 @@ export default {
         this.interest,
         this.inputYears
       )
+    },
+    increaseValue (step, maximum) {
+      switch(maximum) {
+        case maximum == 1000000:
+          break;
+        case maximum == 25:
+          break;
+      }
+      this.calculateCost()
+    },
+    decreaseValue (step, minimum) {
+      switch(minimum) {
+        case minimum == 15000:
+          break;
+        case minimum == 1:
+          break;
+      }
+      this.calculateCost()
     }
   }
 }
