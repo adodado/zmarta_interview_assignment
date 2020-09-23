@@ -11,6 +11,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
     "vue": "^2.5.2"
   },
   "devDependencies": {
@@ -28,6 +31,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
     "eslint": "^4.15.0",
+    "eslint-auto-fix": "^1.0.3",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
