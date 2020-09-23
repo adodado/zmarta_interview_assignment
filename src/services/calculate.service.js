@@ -5,8 +5,8 @@ export const calculate = (amount, interest, years) => {
   const monthlyCost = Math.round(amount * (interest / 100) / 12 / (1 - Math.pow(1 + (interest / 100) / 12, (months * -1))))
 
   // Uncomment lines below for debugging
-  // console.log(loanAmount, interest, repaymentYears);
-  // console.log(months, monthlyCost);
+  // console.log(loanAmount, interest, repaymentYears)
+  // console.log(months, monthlyCost)
   return {
     monthlyCost,
     amount,

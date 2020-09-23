@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 .fixed-width {
-  width: 321px;
+  width: 20rem;
 }
 .label {
   font-weight: 700;

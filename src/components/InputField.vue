@@ -59,21 +59,21 @@ section {
 .label {
   font-weight: 700;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 .fixed-width {
-  width: 321px;
+  width: 20rem;
 }
 input {
-  border: 1.6px solid lightgray;
-  border-radius: 5px;
-  margin: 0px 15px 0px 15px;
-  min-width: 170px;
-  min-height: 30px;
-  font-size: 16px;
+  border: 0.1rem solid lightgray;
+  border-radius: 0.5rem;
+  margin: 0rem 0.8rem 0rem 0.8rem;
+  min-width: 11rem;
+  min-height: 2rem;
+  font-size: 1rem;
   color: darkgray;
   font-weight: 300;
-  padding: 10px;
+  padding: 0.5rem;
 }
 .input-content {
   display: flex;
@@ -84,10 +84,10 @@ input {
   line-height: 1;
   overflow: hidden;
   display: inline-block;
-  width: 44px;
-  height: 44px;
+  width: 4rem;
+  height: 3rem;
   content: "";
-  font-size: 40px;
+  font-size: 2rem;
   color: white;
   background: #61d5a7;
   border-radius: 50%;
@@ -95,5 +95,7 @@ input {
   box-sizing: border-box;
   font-weight: lighter;
   padding-bottom: 4px;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #61d5a7;
 }
 </style>

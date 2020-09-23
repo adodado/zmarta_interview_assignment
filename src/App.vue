@@ -108,6 +108,7 @@ export default {
       this.calculateCost()
     },
     submit () {
+      window.location.href = 'https://www.zmarta.se'
     }
   }
 }
