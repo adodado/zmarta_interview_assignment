@@ -3,13 +3,13 @@
     <div class="fixed-width">
       <div class="label">{{ label }}</div>
       <div class="input-content">
-        <button class="calculator-button" v-on:click="$emit('decrease-value')">
+        <button class="calculator-button" v-on:click="$emit('decrease-value', id, step, minimum)">
           <span>-</span>
         </button>
 
-        <input type="text" :value="value" readonly />
+        <input type="text" :value="formattedValue" readonly />
 
-        <button class="calculator-button" v-on:click="$emit('increase-value')">
+        <button class="calculator-button" v-on:click="$emit('increase-value', id, step, maximum)">
           <span>+</span>
         </button>
       </div>
@@ -21,11 +21,31 @@
 export default {
   name: 'InputField',
   props: {
+    id: {
+      type: Number
+    },
     label: {
+      type: String
+    },
+    suffix: {
       type: String
     },
     value: {
       type: Number
+    },
+    step: {
+      type: Number
+    },
+    minimum: {
+      type: Number
+    },
+    maximum: {
+      type: Number
+    }
+  },
+  computed: {
+    formattedValue: function () {
+      return `${this.value.toLocaleString()} ${this.suffix}`
     }
   }
 }

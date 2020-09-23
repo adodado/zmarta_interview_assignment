@@ -10,6 +10,7 @@
           v-bind:label="loanAmountLabel"
           v-bind:value="calculation.amount"
           v-bind:suffix="loanAmountSuffix"
+          v-bind:id="1"
           v-bind:step="10000"
           v-bind:minimum="15000"
           v-bind:maximum="1000000"
@@ -18,6 +19,8 @@
         <InputField
           v-bind:label="repaymentYearsLabel"
           v-bind:value="calculation.years"
+          v-bind:suffix="repaymentYearsSuffix"
+          v-bind:id="2"
           v-bind:step="1"
           v-bind:minimum="1"
           v-bind:maximum="25"
@@ -45,9 +48,9 @@ export default {
     SubmitButton
   },
   data () {
-    const inputAmount = 250000
-    const inputYears = 14
-    const interest = 5.77
+    let inputAmount = 250000
+    let inputYears = 14
+    let interest = 5.77
     return {
       calculation: calculate(inputAmount, interest, inputYears),
       inputAmount,
@@ -70,23 +73,41 @@ export default {
         this.inputYears
       )
     },
-    increaseValue (step, maximum) {
-      switch(maximum) {
-        case maximum == 1000000:
-          break;
-        case maximum == 25:
-          break;
+    increaseValue (id, step, maximum) {
+      // Uncomment lines below for debugging
+      // console.log(id, step, maximum)
+      switch (id) {
+        case 1:
+          const amount = this.inputAmount + step
+          this.inputAmount = (amount <= maximum ? amount : this.inputAmount)
+          break
+        case 2:
+          const years = this.inputYears + step
+          this.inputYears = (years <= maximum ? years : this.inputYears)
+          break
       }
+      // Uncomment lines below for debugging
+      // console.log(this.inputAmount, this.inputYears)
       this.calculateCost()
     },
-    decreaseValue (step, minimum) {
-      switch(minimum) {
-        case minimum == 15000:
-          break;
-        case minimum == 1:
-          break;
+    decreaseValue (id, step, minimum) {
+      // Uncomment lines below for debugging
+      // console.log(id, step, minimum)
+      switch (id) {
+        case 1:
+          const amount = this.inputAmount - step
+          this.inputAmount = (amount >= minimum ? amount : this.inputAmount)
+          break
+        case 2:
+          const years = this.inputYears - step
+          this.inputYears = (years >= minimum ? years : this.inputYears)
+          break
       }
+      // Uncomment lines below for debugging
+      // console.log(this.inputAmount, this.inputYears)
       this.calculateCost()
+    },
+    submit () {
     }
   }
 }
