@@ -120,7 +120,8 @@ export default {
 }
 .calculator {
   border: 1px solid darkgray;
-  padding: 20px;
+  margin: 3rem;
+  padding: 2rem;
 }
 .content {
   display: flex;
